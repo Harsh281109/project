@@ -25,8 +25,9 @@ if st.button("Analyze"):
 
     # Graph
     df = pd.DataFrame({
-        "Parameter": ["Energy", "Waste", "Water"],
-        "Value": [energy, waste, water]
+    "Parameter": ["Energy", "Waste", "Water", "Industrial", "Transport", "Renewable"],
+    "Value": [energy, waste, water, industrial, transport, renewable]
+})
     })
     st.bar_chart(df.set_index("Parameter"))
 
