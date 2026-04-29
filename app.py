@@ -28,7 +28,7 @@ if st.button("Analyze"):
     "Parameter": ["Energy", "Waste", "Water", "Industrial", "Transport", "Renewable"],
     "Value": [energy, waste, water, industrial, transport, renewable]
 })
-    })
+    
     st.bar_chart(df.set_index("Parameter"))
 
     # Smart Recommendations
