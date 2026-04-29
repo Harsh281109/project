@@ -45,6 +45,14 @@ if st.button("Analyze"):
 
     if result > 85:
         st.error("⚠ High Pollution Risk")
+        if industrial > 70:
+    st.write("🏭 Reduce industrial emissions with cleaner tech")
+
+if transport > 60:
+    st.write("🚗 Promote public transport / EV usage")
+
+if renewable < 30:
+    st.write("🌱 Increase renewable energy adoption")
     elif result > 60:
         st.warning("⚡ Moderate Pollution Level")
     else:
