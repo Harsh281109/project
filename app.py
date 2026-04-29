@@ -57,5 +57,4 @@ if st.button("Analyze"):
     else:
         st.success("✅ Sustainable System")
         st.warning("⚡ Moderate Pollution Level")
-    else:
-        st.success("✅ Sustainable System")
+
