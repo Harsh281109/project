@@ -30,5 +30,5 @@ model = rf if rf_score > lr_score else lr
 model_name = "Random Forest" if rf_score > lr_score else "Linear Regression"
 accuracy = max(lr_score, rf_score)
 
-def predict(energy, waste, water):
-    return model.predict([[energy, waste, water]])[0]
+def predict(energy, waste, water, industrial, transport, renewable):
+    return model.predict([[energy, waste, water, industrial, transport, renewable]])[0]
