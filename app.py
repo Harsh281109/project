@@ -33,7 +33,12 @@ if st.button("Analyze"):
 
     # Smart Recommendations
     st.subheader("💡 AI Recommendations")
+    df = pd.DataFrame({
+    "Parameter": ["Energy", "Waste", "Water", "Industrial", "Transport", "Renewable"],
+    "Value": [energy, waste, water, industrial, transport, renewable]
+    })
 
+st.bar_chart(df.set_index("Parameter"))
     if energy > 70:
         st.write("⚡ Reduce energy usage or switch to renewable sources")
 
@@ -46,13 +51,13 @@ if st.button("Analyze"):
     if result > 85:
         st.error("⚠ High Pollution Risk")
         if industrial > 70:
-    st.write("🏭 Reduce industrial emissions with cleaner tech")
-
-if transport > 60:
-    st.write("🚗 Promote public transport / EV usage")
-
-if renewable < 30:
-    st.write("🌱 Increase renewable energy adoption")
+            st.write("🏭 Reduce industrial emissions with cleaner tech")
+    if transport > 60:
+        st.write("🚗 Promote public transport / EV usage")
+    if renewable < 30:
+        st.write("🌱 Increase renewable energy adoption")
+    if result >85:
+        st.error("⚠ High polution risk")
     elif result > 60:
         st.warning("⚡ Moderate Pollution Level")
     else:
