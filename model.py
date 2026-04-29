@@ -7,7 +7,8 @@ from sklearn.metrics import r2_score
 # Load data
 data = pd.read_csv("data.csv")
 
-X = data[['energy_usage', 'waste', 'water_usage']]
+X = data[['energy_usage', 'waste', 'water_usage',
+          'industrial_activity', 'transport_emission', 'renewable_usage']]
 y = data['carbon_emission']
 
 # Train-test split
