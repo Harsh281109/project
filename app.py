@@ -19,46 +19,43 @@ st.info(f"Best Model: {model_name}")
 st.info(f"Accuracy (R² Score): {accuracy:.2f}")
 
 if st.button("Analyze"):
-    result = predict(energy, waste, water,industrial,transport,renewable)
+    result = predict(energy, waste, water, industrial, transport, renewable)
 
     st.subheader(f"🌡 Predicted Carbon Emission: {result:.2f}")
 
     # Graph
     df = pd.DataFrame({
-    "Parameter": ["Energy", "Waste", "Water", "Industrial", "Transport", "Renewable"],
-    "Value": [energy, waste, water, industrial, transport, renewable]
-})
-    
+        "Parameter": ["Energy", "Waste", "Water", "Industrial", "Transport", "Renewable"],
+        "Value": [energy, waste, water, industrial, transport, renewable]
+    })
     st.bar_chart(df.set_index("Parameter"))
 
-    # Smart Recommendations
-    st.subheader("💡 AI Recommendations")
-    df = pd.DataFrame({
-    "Parameter": ["Energy", "Waste", "Water", "Industrial", "Transport", "Renewable"],
-    "Value": [energy, waste, water, industrial, transport, renewable]
-    })
-
-st.bar_chart(df.set_index("Parameter"))
+    # Recommendations
     if energy > 70:
         st.write("⚡ Reduce energy usage or switch to renewable sources")
 
     if waste > 25:
-        st.write("🗑 Improve waste management and recycling")
+        st.write("🗑 Improve waste management")
 
     if water > 60:
-        st.write("💧 Optimize water usage and reduce wastage")
+        st.write("💧 Optimize water usage")
 
+    if industrial > 70:
+        st.write("🏭 Reduce industrial emissions")
+
+    if transport > 60:
+        st.write("🚗 Promote EV/public transport")
+
+    if renewable < 30:
+        st.write("🌱 Increase renewable energy")
+
+    # Pollution level
     if result > 85:
         st.error("⚠ High Pollution Risk")
-        if industrial > 70:
-            st.write("🏭 Reduce industrial emissions with cleaner tech")
-    if transport > 60:
-        st.write("🚗 Promote public transport / EV usage")
-    if renewable < 30:
-        st.write("🌱 Increase renewable energy adoption")
-    if result >85:
-        st.error("⚠ High polution risk")
     elif result > 60:
+        st.warning("⚡ Moderate Pollution Level")
+    else:
+        st.success("✅ Sustainable System")
         st.warning("⚡ Moderate Pollution Level")
     else:
         st.success("✅ Sustainable System")
