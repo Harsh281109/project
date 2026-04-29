@@ -11,13 +11,15 @@ st.write("AI-powered sustainability analysis with model comparison")
 energy = st.slider("Energy Usage", 0, 100, 50)
 waste = st.slider("Waste Produced", 0, 50, 20)
 water = st.slider("Water Usage", 0, 100, 30)
-
+industrial = st.slider("Industrial Activity", 0, 100, 50)
+transport = st.slider("Transport Emission", 0, 100, 40)
+renewable = st.slider("Renewable Energy Usage", 0, 100, 20)
 # Show model info
 st.info(f"Best Model: {model_name}")
 st.info(f"Accuracy (R² Score): {accuracy:.2f}")
 
 if st.button("Analyze"):
-    result = predict(energy, waste, water)
+    result = predict(energy, waste, water,industrial,transport,renewable)
 
     st.subheader(f"🌡 Predicted Carbon Emission: {result:.2f}")
 
